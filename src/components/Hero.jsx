@@ -106,7 +106,7 @@ function Hero() {
             <div className="flex gap-6 mt-10">
 
               <a
-                href="https://github.com/vaishusudhakar5"
+                href="https://github.com/vaishusudhakar5-maker"
                 target="_blank"
                 rel="noreferrer"
                 className="text-3xl text-gray-700 hover:text-blue-600 transition"

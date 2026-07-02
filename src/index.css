@@ -1,7 +1,20 @@
 @import "tailwindcss";
-
+@import "tailwindcss";
 body{
     margin:0;
     background:#F8FAFC;
     font-family: Inter, sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+transition:.4s;
+}
+
+.dark body{
+background:#020617;
+color:white;
 }

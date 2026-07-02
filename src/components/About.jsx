@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import { FaGraduationCap, FaLaptopCode, FaBrain } from "react-icons/fa";
+
 function About() {
   return (
     <section
@@ -6,78 +9,129 @@ function About() {
     >
       <div className="max-w-7xl mx-auto px-6">
 
-        <h2 className="text-4xl font-bold text-center mb-16">
-          About Me
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
 
-        <div className="grid md:grid-cols-2 gap-12">
+          <h2 className="text-4xl font-bold text-center text-gray-900">
+            About Me
+          </h2>
 
-          {/* Left Side */}
-          <div>
-            <h3 className="text-2xl font-semibold mb-6">
-              Who am I?
+          <p className="text-center text-gray-500 mt-4 max-w-3xl mx-auto">
+            I am a passionate Artificial Intelligence & Data Science student
+            who enjoys building AI-powered applications, solving real-world
+            problems and continuously learning new technologies.
+          </p>
+
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8 mt-16">
+
+          <motion.div
+            whileHover={{ y: -8 }}
+            className="bg-slate-50 rounded-3xl shadow-lg p-8 text-center"
+          >
+
+            <FaGraduationCap className="text-5xl text-blue-600 mx-auto mb-6" />
+
+            <h3 className="text-2xl font-bold">
+              Education
             </h3>
 
-            <p className="text-gray-600 leading-8 text-lg">
-              I'm <strong>Vaishnavi S.</strong>, a B.Tech Artificial
-              Intelligence & Data Science student at
-              <strong> SRM TRP Engineering College, Trichy</strong>.
+            <p className="text-gray-600 mt-4 leading-7">
+
+              <strong>B.Tech</strong><br />
+
+              Artificial Intelligence & Data Science
 
               <br /><br />
 
-              I currently have a <strong>CGPA of 8.46 (up to 3rd Semester)</strong>.
-              I am passionate about Artificial Intelligence, Machine Learning,
-              Computer Vision, Data Science, and Full Stack Development.
+              SRM TRP Engineering College
 
               <br /><br />
 
-              I enjoy building AI-powered applications that solve real-world
-              problems and continuously enhance my skills through internships,
-              hackathons, startup pitching, and technical competitions.
+              CGPA
+
+              <span className="text-blue-600 font-bold">
+                {" "}8.46
+              </span>
+
+              <br />
+
+              (Up to 3rd Semester)
+
             </p>
-          </div>
 
-          {/* Right Side */}
-          <div className="grid grid-cols-2 gap-6">
+          </motion.div>
 
-            <div className="shadow-lg rounded-2xl p-8 text-center hover:shadow-xl transition">
-              <h1 className="text-4xl font-bold text-blue-600">
-                8.46
-              </h1>
-              <p className="mt-2 text-gray-600">
-                CGPA <br />
-                <span className="text-sm">(Up to 3rd Semester)</span>
-              </p>
-            </div>
+          <motion.div
+            whileHover={{ y: -8 }}
+            className="bg-slate-50 rounded-3xl shadow-lg p-8 text-center"
+          >
 
-            <div className="shadow-lg rounded-2xl p-8 text-center hover:shadow-xl transition">
-              <h1 className="text-4xl font-bold text-blue-600">
-                4+
-              </h1>
-              <p className="mt-2 text-gray-600">
-                Projects
-              </p>
-            </div>
+            <FaLaptopCode className="text-5xl text-blue-600 mx-auto mb-6" />
 
-            <div className="shadow-lg rounded-2xl p-8 text-center hover:shadow-xl transition">
-              <h1 className="text-4xl font-bold text-blue-600">
-                6+
-              </h1>
-              <p className="mt-2 text-gray-600">
-                Certifications
-              </p>
-            </div>
+            <h3 className="text-2xl font-bold">
+              Experience
+            </h3>
 
-            <div className="shadow-lg rounded-2xl p-8 text-center hover:shadow-xl transition">
-              <h1 className="text-4xl font-bold text-blue-600">
-                2
-              </h1>
-              <p className="mt-2 text-gray-600">
-                Internships
-              </p>
-            </div>
+            <p className="text-gray-600 mt-4 leading-7">
 
-          </div>
+              ✔ Phoenix Softech
+
+              <br />
+
+              Full Stack Web Development
+
+              <br /><br />
+
+              ✔ ElysiumPro
+
+              <br />
+
+              Machine Learning & Deep Learning
+
+            </p>
+
+          </motion.div>
+
+          <motion.div
+            whileHover={{ y: -8 }}
+            className="bg-slate-50 rounded-3xl shadow-lg p-8 text-center"
+          >
+
+            <FaBrain className="text-5xl text-blue-600 mx-auto mb-6" />
+
+            <h3 className="text-2xl font-bold">
+              Interests
+            </h3>
+
+            <p className="text-gray-600 mt-4 leading-7">
+
+              Artificial Intelligence
+
+              <br />
+
+              Machine Learning
+
+              <br />
+
+              Deep Learning
+
+              <br />
+
+              Computer Vision
+
+              <br />
+
+              Full Stack Development
+
+            </p>
+
+          </motion.div>
 
         </div>
 

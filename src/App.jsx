@@ -8,10 +8,12 @@ import Achievements from "./components/Achievements";
 import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ScrollProgress from "./components/ScrollProgress";
 
 function App() {
   return (
     <>
+      <ScrollProgress/>
       <Navbar />
       <Hero />
       <About />

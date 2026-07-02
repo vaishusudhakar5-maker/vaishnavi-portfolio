@@ -1,59 +1,73 @@
+import { motion } from "framer-motion";
+import { FaBriefcase } from "react-icons/fa";
+
 function Experience() {
-  const internships = [
+  const experiences = [
     {
+      year: "2026",
       company: "ElysiumPro",
       role: "Machine Learning & Deep Learning Intern",
-      duration: "03 Jul 2026 – 12 Jul 2026",
+      duration: "03 Jul 2026 - 12 Jul 2026",
       description:
-        "Worked on Machine Learning and Deep Learning concepts, model development, data preprocessing, and practical AI applications."
+        "Worked on Machine Learning and Deep Learning models, data preprocessing and AI applications.",
     },
     {
+      year: "2025",
       company: "Phoenix Softech",
       role: "Full Stack Web Development Intern",
-      duration: "14 Jul 2025 – 28 Jul 2025",
+      duration: "14 Jul 2025 - 28 Jul 2025",
       description:
-        "Developed responsive web pages using Python and web technologies while learning frontend-backend integration and real-world development practices."
-    }
+        "Built responsive web applications and learned frontend-backend integration using modern web technologies.",
+    },
   ];
 
   return (
-    <section id="experience" className="py-24 bg-slate-50">
+    <section id="experience" className="py-28 bg-slate-100">
       <div className="max-w-6xl mx-auto px-6">
 
-        <h2 className="text-4xl font-bold text-center mb-16">
+        <h2 className="text-5xl font-bold text-center mb-20">
           Internship Experience
         </h2>
 
-        <div className="space-y-8">
+        <div className="relative border-l-4 border-blue-600 ml-6">
 
-          {internships.map((item, index) => (
-            <div
+          {experiences.map((exp, index) => (
+
+            <motion.div
               key={index}
-              className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: .7 }}
+              viewport={{ once: true }}
+              className="mb-16 ml-10"
             >
-              <div className="flex flex-col md:flex-row md:justify-between md:items-center">
 
-                <div>
-                  <h3 className="text-2xl font-bold text-blue-600">
-                    {item.role}
-                  </h3>
-
-                  <p className="text-lg font-medium text-gray-700">
-                    {item.company}
-                  </p>
-                </div>
-
-                <p className="text-gray-500 mt-2 md:mt-0">
-                  {item.duration}
-                </p>
-
+              <div className="absolute -left-6 bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center text-white">
+                <FaBriefcase />
               </div>
 
-              <p className="mt-5 text-gray-600 leading-7">
-                {item.description}
+              <span className="text-blue-600 font-bold">
+                {exp.year}
+              </span>
+
+              <h3 className="text-3xl font-bold mt-2">
+                {exp.role}
+              </h3>
+
+              <p className="font-semibold text-gray-700">
+                {exp.company}
               </p>
 
-            </div>
+              <p className="text-gray-500 mt-2">
+                {exp.duration}
+              </p>
+
+              <p className="text-gray-600 mt-5 leading-7">
+                {exp.description}
+              </p>
+
+            </motion.div>
+
           ))}
 
         </div>

@@ -1,6 +1,7 @@
 import profile from "../assets/profile.jpeg";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import CountUp from "react-countup";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 function Hero() {
@@ -77,28 +78,48 @@ function Hero() {
 
             </div>
 
-            {/* Stats */}
+            {/* Animated Stats */}
             <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
 
-              <div className="text-center bg-white rounded-xl shadow-md p-4">
-                <h2 className="text-3xl font-bold text-blue-600">4+</h2>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="text-center bg-white rounded-xl shadow-md p-4"
+              >
+                <h2 className="text-3xl font-bold text-blue-600">
+                  <CountUp end={4} duration={3} />+
+                </h2>
                 <p className="text-gray-600">Projects</p>
-              </div>
+              </motion.div>
 
-              <div className="text-center bg-white rounded-xl shadow-md p-4">
-                <h2 className="text-3xl font-bold text-blue-600">2</h2>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="text-center bg-white rounded-xl shadow-md p-4"
+              >
+                <h2 className="text-3xl font-bold text-blue-600">
+                  <CountUp end={2} duration={3} />
+                </h2>
                 <p className="text-gray-600">Internships</p>
-              </div>
+              </motion.div>
 
-              <div className="text-center bg-white rounded-xl shadow-md p-4">
-                <h2 className="text-3xl font-bold text-blue-600">6+</h2>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="text-center bg-white rounded-xl shadow-md p-4"
+              >
+                <h2 className="text-3xl font-bold text-blue-600">
+                  <CountUp end={6} duration={3} />+
+                </h2>
                 <p className="text-gray-600">Certificates</p>
-              </div>
+              </motion.div>
 
-              <div className="text-center bg-white rounded-xl shadow-md p-4">
-                <h2 className="text-3xl font-bold text-blue-600">8.46</h2>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="text-center bg-white rounded-xl shadow-md p-4"
+              >
+                <h2 className="text-3xl font-bold text-blue-600">
+                  <CountUp end={8.46} decimals={2} duration={3} />
+                </h2>
                 <p className="text-gray-600">CGPA</p>
-              </div>
+              </motion.div>
 
             </div>
 
@@ -142,10 +163,15 @@ function Hero() {
             transition={{ duration: 1 }}
           >
 
-            <img
+            <motion.img
               src={profile}
               alt="Vaishnavi"
-              className="w-72 h-72 md:w-[420px] md:h-[420px] object-cover rounded-full border-8 border-blue-600 shadow-[0_0_60px_rgba(37,99,235,0.35)] hover:scale-105 transition duration-500"
+              animate={{ y: [0, -15, 0] }}
+              transition={{
+                repeat: Infinity,
+                duration: 4,
+              }}
+              className="w-72 h-72 md:w-[420px] md:h-[420px] object-cover rounded-full border-8 border-blue-600 shadow-[0_0_60px_rgba(37,99,235,0.35)]"
             />
 
           </motion.div>

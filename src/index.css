@@ -1,20 +1,14 @@
 @import "tailwindcss";
-@import "tailwindcss";
-body{
-    margin:0;
-    background:#F8FAFC;
-    font-family: Inter, sans-serif;
-}
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-transition:.4s;
-}
-
-.dark body{
-background:#020617;
-color:white;
+  margin:0;
+  font-family: Inter, sans-serif;
+  background:#F8FAFC;
+  transition: background-color .3s ease,color .3s ease;
 }

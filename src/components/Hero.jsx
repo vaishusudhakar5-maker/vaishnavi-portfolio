@@ -1,177 +1,189 @@
 import profile from "../assets/profile.jpeg";
+import FloatingIcons from "./FloatingIcons";
+
 import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
-import CountUp from "react-countup";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+} from "react-icons/fa";
 
 function Hero() {
+  const stats = [
+    { value: "4+", label: "Projects" },
+    { value: "2", label: "Internships" },
+    { value: "10+", label: "Certificates" },
+    { value: "8.46", label: "CGPA" },
+  ];
+
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-white flex items-center pt-24">
-      <div className="max-w-7xl mx-auto w-full px-6">
+    <section
+      id="home"
+      className="relative overflow-hidden min-h-screen flex items-center pt-24
+      bg-gradient-to-br
+      from-white
+      via-sky-50
+      to-blue-100
+      dark:from-slate-950
+      dark:via-slate-900
+      dark:to-slate-800
+      transition-colors duration-500"
+    >
+      <FloatingIcons />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-16">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
 
-          {/* Left Side */}
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+
+          {/* LEFT */}
+
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: -70 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
 
             <p className="text-blue-600 text-xl font-semibold">
-              Hello, I'm
+              👋 Hello, I'm
             </p>
 
-            <h1 className="text-5xl md:text-7xl font-extrabold mt-3 text-gray-900">
+            <h1 className="mt-3 text-5xl md:text-6xl lg:text-7xl font-black leading-tight bg-gradient-to-r from-blue-700 to-cyan-500 bg-clip-text text-transparent">
               Vaishnavi S.
             </h1>
 
-            <div className="mt-5">
+            <h2 className="mt-5 text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300">
+              AI & Data Science Student
+            </h2>
 
-              <h2 className="text-2xl md:text-3xl text-gray-600">
-                AI & Data Science Student
-              </h2>
+            <span className="block mt-5 text-blue-600 text-xl md:text-2xl font-semibold">
+              Machine Learning • Deep Learning • Full Stack Development
+            </span>
 
-              <TypeAnimation
-                sequence={[
-                  "Machine Learning Enthusiast",
-                  2000,
-                  "Computer Vision Developer",
-                  2000,
-                  "Full Stack Developer",
-                  2000,
-                  "AI Explorer",
-                  2000,
-                ]}
-                wrapper="span"
-                speed={50}
-                repeat={Infinity}
-                className="block text-blue-600 text-xl md:text-2xl font-semibold mt-4"
-              />
-
-            </div>
-
-            <p className="mt-8 text-lg text-gray-600 leading-8">
+            <p className="mt-8 max-w-xl leading-8 text-lg text-gray-600 dark:text-gray-300">
               Passionate about Artificial Intelligence, Machine Learning,
-              Computer Vision, Data Science, and Full Stack Development.
+              Deep Learning, Computer Vision and Full Stack Development.
               I enjoy building intelligent applications that solve
               real-world problems.
             </p>
 
             {/* Buttons */}
-            <div className="mt-10 flex flex-wrap gap-4">
+
+            <div className="flex flex-wrap gap-5 mt-10">
 
               <a
                 href="#projects"
-                className="bg-blue-600 text-white px-7 py-3 rounded-xl hover:bg-blue-700 transition"
+                className="px-8 py-4 rounded-xl bg-blue-600 text-white font-semibold shadow-lg hover:bg-blue-700 hover:scale-105 transition-all duration-300"
               >
                 View Projects
               </a>
 
               <a
                 href="/resume.pdf"
-                download
-                className="border-2 border-blue-600 text-blue-600 px-7 py-3 rounded-xl hover:bg-blue-600 hover:text-white transition"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 rounded-xl border-2 border-blue-600 text-blue-600 dark:text-white hover:bg-blue-600 hover:text-white hover:scale-105 transition-all duration-300"
+              >
+                Resume Preview
+              </a>
+
+              <a
+                href="/resume.pdf"
+                download="Vaishnavi_S_Resume.pdf"
+                className="px-8 py-4 rounded-xl bg-slate-900 dark:bg-slate-700 text-white hover:bg-slate-800 dark:hover:bg-slate-600 hover:scale-105 transition-all duration-300"
               >
                 Download Resume
               </a>
 
             </div>
 
-            {/* Animated Stats */}
-            <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
+            {/* Stats */}
 
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="text-center bg-white rounded-xl shadow-md p-4"
-              >
-                <h2 className="text-3xl font-bold text-blue-600">
-                  <CountUp end={4} duration={3} />+
-                </h2>
-                <p className="text-gray-600">Projects</p>
-              </motion.div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-14">
 
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="text-center bg-white rounded-xl shadow-md p-4"
-              >
-                <h2 className="text-3xl font-bold text-blue-600">
-                  <CountUp end={2} duration={3} />
-                </h2>
-                <p className="text-gray-600">Internships</p>
-              </motion.div>
+              {stats.map((item, index) => (
 
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="text-center bg-white rounded-xl shadow-md p-4"
-              >
-                <h2 className="text-3xl font-bold text-blue-600">
-                  <CountUp end={6} duration={3} />+
-                </h2>
-                <p className="text-gray-600">Certificates</p>
-              </motion.div>
+                <motion.div
+                  key={index}
+                  whileHover={{
+                    scale: 1.05,
+                    y: -5,
+                  }}
+                  className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl shadow-xl border border-white dark:border-slate-700 p-5 text-center"
+                >
 
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="text-center bg-white rounded-xl shadow-md p-4"
-              >
-                <h2 className="text-3xl font-bold text-blue-600">
-                  <CountUp end={8.46} decimals={2} duration={3} />
-                </h2>
-                <p className="text-gray-600">CGPA</p>
-              </motion.div>
+                  <h2 className="text-3xl font-bold text-blue-600">
+                    {item.value}
+                  </h2>
+
+                  <p className="mt-2 text-gray-600 dark:text-gray-300">
+                    {item.label}
+                  </p>
+
+                </motion.div>
+
+              ))}
 
             </div>
 
             {/* Social Icons */}
-            <div className="flex gap-6 mt-10">
 
-              <a
+            <div className="flex gap-8 mt-12">
+
+              <motion.a
+                whileHover={{ scale: 1.2 }}
                 href="https://github.com/vaishusudhakar5-maker"
                 target="_blank"
                 rel="noreferrer"
-                className="text-3xl text-gray-700 hover:text-blue-600 transition"
+                className="text-4xl text-gray-700 dark:text-white hover:text-blue-600 transition"
               >
                 <FaGithub />
-              </a>
+              </motion.a>
 
-              <a
+              <motion.a
+                whileHover={{ scale: 1.2 }}
                 href="https://www.linkedin.com/in/vaishnavi-sudhakar-940b1b329"
                 target="_blank"
                 rel="noreferrer"
-                className="text-3xl text-gray-700 hover:text-blue-600 transition"
+                className="text-4xl text-gray-700 dark:text-white hover:text-blue-600 transition"
               >
                 <FaLinkedin />
-              </a>
+              </motion.a>
 
-              <a
+              <motion.a
+                whileHover={{ scale: 1.2 }}
                 href="mailto:vaishusudhakar5@gmail.com"
-                className="text-3xl text-gray-700 hover:text-blue-600 transition"
+                className="text-4xl text-gray-700 dark:text-white hover:text-blue-600 transition"
               >
                 <FaEnvelope />
-              </a>
+              </motion.a>
 
             </div>
 
           </motion.div>
 
-          {/* Right Side */}
+          {/* RIGHT */}
+
           <motion.div
-            className="flex justify-center"
-            initial={{ opacity: 0, x: 60 }}
+            initial={{ opacity: 0, x: 70 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
+            className="flex justify-center"
           >
 
             <motion.img
               src={profile}
               alt="Vaishnavi"
-              animate={{ y: [0, -15, 0] }}
+              animate={{
+                y: [0, -15, 0],
+              }}
               transition={{
                 repeat: Infinity,
                 duration: 4,
               }}
-              className="w-72 h-72 md:w-[420px] md:h-[420px] object-cover rounded-full border-8 border-blue-600 shadow-[0_0_60px_rgba(37,99,235,0.35)]"
+              whileHover={{
+                scale: 1.05,
+              }}
+              className="w-80 h-80 lg:w-[460px] lg:h-[460px] rounded-full object-cover border-8 border-blue-600 shadow-[0_0_90px_rgba(37,99,235,0.45)]"
             />
 
           </motion.div>
@@ -179,6 +191,7 @@ function Hero() {
         </div>
 
       </div>
+
     </section>
   );
 }

@@ -5,45 +5,61 @@ function About() {
   return (
     <section
       id="about"
-      className="py-24 bg-white"
+      className="py-24 bg-white dark:bg-slate-900 transition-colors duration-500"
     >
       <div className="max-w-7xl mx-auto px-6">
+
+        {/* Heading */}
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
 
-          <h2 className="text-4xl font-bold text-center text-gray-900">
+          <h2 className="text-5xl font-bold text-center text-gray-900 dark:text-white">
             About Me
           </h2>
 
-          <p className="text-center text-gray-500 mt-4 max-w-3xl mx-auto">
-            I am a passionate Artificial Intelligence & Data Science student
-            who enjoys building AI-powered applications, solving real-world
-            problems and continuously learning new technologies.
+          <p className="text-center text-gray-500 dark:text-gray-300 mt-5 max-w-3xl mx-auto leading-8">
+            Passionate Artificial Intelligence & Data Science student with a
+            strong interest in Machine Learning, Deep Learning, Computer Vision,
+            Data Science and Full Stack Development. I enjoy building
+            intelligent applications that solve real-world problems.
           </p>
 
         </motion.div>
 
+        {/* Cards */}
+
         <div className="grid md:grid-cols-3 gap-8 mt-16">
 
+          {/* Education */}
+
           <motion.div
-            whileHover={{ y: -8 }}
-            className="bg-slate-50 rounded-3xl shadow-lg p-8 text-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            whileHover={{
+              y: -10,
+              scale: 1.03,
+            }}
+            className="bg-white/70 dark:bg-slate-800/80 backdrop-blur-xl border border-white dark:border-slate-700 rounded-3xl shadow-xl p-8 text-center transition-all duration-300"
           >
 
             <FaGraduationCap className="text-5xl text-blue-600 mx-auto mb-6" />
 
-            <h3 className="text-2xl font-bold">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
               Education
             </h3>
 
-            <p className="text-gray-600 mt-4 leading-7">
+            <p className="text-gray-600 dark:text-gray-300 leading-8 mt-5">
 
-              <strong>B.Tech</strong><br />
+              <strong>B.Tech</strong>
+
+              <br />
 
               Artificial Intelligence & Data Science
 
@@ -55,7 +71,7 @@ function About() {
 
               CGPA
 
-              <span className="text-blue-600 font-bold">
+              <span className="font-bold text-blue-600">
                 {" "}8.46
               </span>
 
@@ -67,18 +83,27 @@ function About() {
 
           </motion.div>
 
+          {/* Experience */}
+
           <motion.div
-            whileHover={{ y: -8 }}
-            className="bg-slate-50 rounded-3xl shadow-lg p-8 text-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            whileHover={{
+              y: -10,
+              scale: 1.03,
+            }}
+            className="bg-white/70 dark:bg-slate-800/80 backdrop-blur-xl border border-white dark:border-slate-700 rounded-3xl shadow-xl p-8 text-center transition-all duration-300"
           >
 
             <FaLaptopCode className="text-5xl text-blue-600 mx-auto mb-6" />
 
-            <h3 className="text-2xl font-bold">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
               Experience
             </h3>
 
-            <p className="text-gray-600 mt-4 leading-7">
+            <p className="text-gray-600 dark:text-gray-300 leading-8 mt-5">
 
               ✔ Phoenix Softech
 
@@ -98,18 +123,27 @@ function About() {
 
           </motion.div>
 
+          {/* Interests */}
+
           <motion.div
-            whileHover={{ y: -8 }}
-            className="bg-slate-50 rounded-3xl shadow-lg p-8 text-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            whileHover={{
+              y: -10,
+              scale: 1.03,
+            }}
+            className="bg-white/70 dark:bg-slate-800/80 backdrop-blur-xl border border-white dark:border-slate-700 rounded-3xl shadow-xl p-8 text-center transition-all duration-300"
           >
 
             <FaBrain className="text-5xl text-blue-600 mx-auto mb-6" />
 
-            <h3 className="text-2xl font-bold">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
               Interests
             </h3>
 
-            <p className="text-gray-600 mt-4 leading-7">
+            <p className="text-gray-600 dark:text-gray-300 leading-8 mt-5">
 
               Artificial Intelligence
 

@@ -1,39 +1,49 @@
 import { useEffect, useState } from "react";
 
-function ScrollProgress(){
+function ScrollProgress() {
+  const [scroll, setScroll] = useState(0);
 
-const[scroll,setScroll]=useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
 
-useEffect(()=>{
+      const progress =
+        totalHeight > 0
+          ? (window.scrollY / totalHeight) * 100
+          : 0;
 
-const handle=()=>{
+      setScroll(progress);
+    };
 
-const total=document.documentElement.scrollHeight-window.innerHeight;
+    window.addEventListener("scroll", handleScroll);
 
-setScroll((window.scrollY/total)*100);
+    handleScroll();
 
-}
+    return () =>
+      window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-window.addEventListener("scroll",handle);
+  return (
+    <div className="fixed top-0 left-0 w-full h-1 z-[9999] bg-transparent">
 
-return()=>window.removeEventListener("scroll",handle);
+      <div
+        className="
+          h-full
+          bg-gradient-to-r
+          from-blue-500
+          via-cyan-500
+          to-blue-700
+          transition-all
+          duration-150
+        "
+        style={{
+          width: `${scroll}%`,
+        }}
+      />
 
-},[])
-
-return(
-
-<div
-
-className="fixed top-0 left-0 h-1 bg-blue-600 z-[100]"
-
-style={{width:`${scroll}%`}}
-
->
-
-</div>
-
-)
-
+    </div>
+  );
 }
 
 export default ScrollProgress;

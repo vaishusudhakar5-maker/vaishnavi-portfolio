@@ -1,54 +1,158 @@
-import { FaMoon, FaSun } from "react-icons/fa";
+import { useState } from "react";
+import {
+  FaLaptopCode,
+  FaBars,
+  FaTimes,
+  FaMoon,
+  FaSun,
+} from "react-icons/fa";
 import { useTheme } from "../context/ThemeContext";
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { dark, setDark } = useTheme();
 
-const {dark,setDark}=useTheme();
+  const closeMenu = () => setMenuOpen(false);
 
-return(
+  const navItems = [
+    { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
+    { label: "Experience", href: "#experience" },
+    { label: "Certificates", href: "#certifications" },
+    { label: "Achievements", href: "#achievements" },
+    { label: "Contact", href: "#contact" },
+  ];
 
-<nav className="fixed w-full top-0 bg-white/80 backdrop-blur-md z-50 shadow">
+  return (
+    <nav
+      className="
+      fixed top-0 left-0 w-full z-50
+      bg-white/70 dark:bg-slate-900/80
+      backdrop-blur-xl
+      border-b border-gray-200 dark:border-slate-700
+      shadow-lg
+      transition-all duration-300
+    "
+    >
+      <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
 
-<div className="max-w-7xl mx-auto flex justify-between items-center px-8 py-5">
+        {/* Logo */}
 
-<h1 className="text-3xl font-bold text-blue-600">
+        <a
+          href="#home"
+          className="flex items-center gap-3 text-3xl font-extrabold text-blue-600 hover:scale-105 transition"
+        >
+          <FaLaptopCode />
+          Vaishnavi
+        </a>
 
-Vaishnavi.
+        {/* Desktop Menu */}
 
-</h1>
+        <ul className="hidden lg:flex items-center gap-8 font-medium">
 
-<ul className="hidden md:flex gap-8">
+          {navItems.map((item) => (
 
-<li><a href="#about">About</a></li>
+            <li key={item.label}>
 
-<li><a href="#skills">Skills</a></li>
+              <a
+                href={item.href}
+                className="
+                  text-gray-700
+                  dark:text-white
+                  hover:text-blue-600
+                  transition-colors duration-300
+                "
+              >
+                {item.label}
+              </a>
 
-<li><a href="#projects">Projects</a></li>
+            </li>
 
-<li><a href="#experience">Experience</a></li>
+          ))}
 
-<li><a href="#contact">Contact</a></li>
+        </ul>
 
-</ul>
+        {/* Right Side */}
 
-<button
+        <div className="flex items-center gap-5">
 
-onClick={()=>setDark(!dark)}
+          {/* Dark Mode */}
 
-className="text-2xl"
+          <button
+            onClick={() => setDark(!dark)}
+            aria-label="Toggle Theme"
+            className="
+              text-2xl
+              text-blue-600
+              hover:rotate-180
+              transition duration-500
+            "
+          >
+            {dark ? <FaSun /> : <FaMoon />}
+          </button>
 
->
+          {/* Mobile Menu */}
 
-{dark?<FaSun/>:<FaMoon/>}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menu"
+            className="lg:hidden text-3xl text-blue-600"
+          >
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </button>
 
-</button>
+        </div>
 
-</div>
+      </div>
 
-</nav>
+      {/* Mobile Menu */}
 
-)
+      <div
+        className={`
+          lg:hidden
+          overflow-hidden
+          transition-all duration-300
+          ${
+            menuOpen
+              ? "max-h-[500px] opacity-100"
+              : "max-h-0 opacity-0"
+          }
+        `}
+      >
+        <div className="bg-white dark:bg-slate-900 shadow-xl">
 
+          <ul className="flex flex-col items-center gap-6 py-8 font-medium">
+
+            {navItems.map((item) => (
+
+              <li key={item.label}>
+
+                <a
+                  href={item.href}
+                  onClick={closeMenu}
+                  className="
+                    text-gray-700
+                    dark:text-white
+                    hover:text-blue-600
+                    transition
+                  "
+                >
+                  {item.label}
+                </a>
+
+              </li>
+
+            ))}
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </nav>
+  );
 }
 
 export default Navbar;
